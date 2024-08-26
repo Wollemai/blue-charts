@@ -126,12 +126,12 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         // prettier-ignore
         source: [
-                     [850, 740, 900, 1070, 930, 850, 950, 980, 980, 880, 1000, 980, 930, 650, 760, 810, 1000, 1000, 960, 960],
-                     [960, 940, 960, 940, 880, 800, 850, 880, 900, 840, 830, 790, 810, 880, 880, 830, 800, 790, 760, 800],
-                     [880, 880, 880, 860, 720, 720, 620, 860, 970, 950, 880, 910, 850, 870, 840, 840, 850, 840, 840, 840],
-                     [890, 810, 810, 820, 800, 770, 760, 740, 750, 760, 910, 920, 890, 860, 880, 720, 840, 850, 850, 780],
-                     [890, 840, 780, 810, 760, 810, 790, 810, 820, 850, 870, 870, 810, 740, 810, 940, 950, 800, 810, 870]
-                 ],
+          [850, 740, 900, 1070, 930, 850, 950, 980, 980, 880, 1000, 980, 930, 650, 760, 810, 1000, 1000, 960, 960],
+          [960, 940, 960, 940, 880, 800, 850, 880, 900, 840, 830, 790, 810, 880, 880, 830, 800, 790, 760, 800],
+          [880, 880, 880, 860, 720, 720, 620, 860, 970, 950, 880, 910, 850, 870, 840, 840, 850, 840, 840, 840],
+          [890, 810, 810, 820, 800, 770, 760, 740, 750, 760, 910, 920, 890, 860, 880, 720, 840, 850, 850, 780],
+          [890, 840, 780, 810, 760, 810, 790, 810, 820, 850, 870, 870, 810, 740, 810, 940, 950, 800, 810, 870]
+        ],
       },
       {
         transform: {
@@ -185,15 +185,53 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   boxPlot.setOption(boxoption);
 
+  const data = [
+    {
+      "financial_year": "2023",
+      "max_of_farms": "1.3899742",
+      "min_of_farms": "0.028052496",
+      "average_of_farms": "0.3412434723317237",
+      "reference_farm_amount": "0.19816574"
+    },
+    {
+      "financial_year": "2030",
+      "max_of_farms": "1.3899742",
+      "min_of_farms": "0.028052496",
+      "average_of_farms": "0.3412434723317237",
+      "reference_farm_amount": "0.21289936"
+    },
+    {
+      "financial_year": "2040",
+      "max_of_farms": "1.3899742",
+      "min_of_farms": "0.028052496",
+      "average_of_farms": "0.3412434723317237",
+      "reference_farm_amount": "0.21283042000000002"
+    },
+    {
+      "financial_year": "2050",
+      "max_of_farms": "1.3899742",
+      "min_of_farms": "0.028052496",
+      "average_of_farms": "0.3412434723317237",
+      "reference_farm_amount": "0.2138979"
+    }
+  ];
+
+  // Extract the data for the series
+  const years = data.map(d => d.financial_year);
+  const averageOfFarms = data.map(d => parseFloat(d.average_of_farms));
+  const referenceFarmAmount = data.map(d => parseFloat(d.reference_farm_amount));
+
+  // Configure the line plot
   const lineOption = {
     title: {
-      text: "Stacked Line",
+      text: "Trend",
     },
     tooltip: {
       trigger: "axis",
     },
     legend: {
-      data: ["Email", "Union Ads", "Video Ads"],
+      data: ["Average of Farms", "Reference Farm Amount"],
+      bottom: 0
     },
     grid: {
       left: "3%",
@@ -207,48 +245,40 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
     xAxis: {
-      ...globalChartOptions.xAxis,
       type: "category",
       boundaryGap: false,
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      name: "day of the week",
+      data: years,
+      name: "Financial Year",
     },
     yAxis: {
-      ...globalChartOptions.yAxis,
       type: "value",
-      name: "Number of ",
+      name: "Value",
     },
     series: [
       {
-        name: "Email",
+        name: "Average of Farms",
         type: "line",
-        symbol: "square",
-        symbolSize: 10,
-        stack: "Total",
-        data: [120, 132, 101, 134, 90, 230, 210],
+        symbol: "circle",
+        symbolSize: 8,
+        data: averageOfFarms,
+        itemStyle: {
+          color: 'lightblue'
+        }
       },
       {
-        name: "Union Ads",
-        symbol: "square",
-        symbolSize: 10,
+        name: "Reference Farm Amount",
         type: "line",
-        stack: "Total",
-        data: [220, 182, 191, 234, 290, 330, 310],
-      },
-      {
-        name: "Video Ads",
-        symbol: "square",
-        symbolSize: 10,
-
-        type: "line",
-        stack: "Total",
-        data: [150, 232, 201, 154, 190, 330, 410],
-      },
-    ],
+        symbol: "circle",
+        symbolSize: 8,
+        data: referenceFarmAmount,
+        itemStyle: {
+          color: 'blue'
+        }
+      }
+    ]
   };
-  var linePlot = echarts.init(
-    document.getElementById("linePlot"),
-    globalChartOptions
-  );
+
+  // Initialize the chart
+  var linePlot = echarts.init(document.getElementById("linePlot"));
   linePlot.setOption(lineOption);
 });

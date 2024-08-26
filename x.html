@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farms Data Boxplot</title>
+    <!-- Import ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <!-- Container for the chart -->
+    <div id="main" style="width: 1200px; height: 600px;"></div>
+
+    <script>
+        // Prepare data
+        const Scope1 = [
+            { "year": "2023", "tCO2e": 306.132 },
+            { "year": "2030", "tCO2e": 308.928 },
+            { "year": "2040", "tCO2e": 308.813 },
+            { "year": "2050", "tCO2e": 310.377 }
+        ];
+
+        const Scope2 = [
+            { "year": "2023", "tCO2e": 29.859 },
+            { "year": "2030", "tCO2e": 30.132 },
+            { "year": "2040", "tCO2e": 30.121 },
+            { "year": "2050", "tCO2e": 30.273 }
+        ];
+
+        const Scope3 = [
+            { "year": "2023", "tCO2e": 79.47 },
+            { "year": "2030", "tCO2e": 80.196 },
+            { "year": "2040", "tCO2e": 80.166 },
+            { "year": "2050", "tCO2e": 80.572 }
+        ];
+
+        const years = Scope1.map(item => item.year);
+        const scope1Data = Scope1.map(item => item.tCO2e);
+        const scope2Data = Scope2.map(item => item.tCO2e);
+        const scope3Data = Scope3.map(item => item.tCO2e);
+
+        // ECharts configuration
+        const option = {
+            title: {
+                text: 'tCO2e Emissions by Scope across Years'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['Scope 1', 'Scope 2', 'Scope 3'],
+                bottom: 0
+            },
+            xAxis: {
+                type: 'category',
+                data: years
+            },
+            yAxis: {
+                type: 'value',
+                name: 'tCO2e'
+            },
+            series: [
+                {
+                    name: 'Scope 1',
+                    type: 'bar',
+                    data: scope1Data,
+                    color: '#5470C6'  // Blue color
+                },
+                {
+                    name: 'Scope 2',
+                    type: 'bar',
+                    data: scope2Data,
+                    color: '#91CC75'  // Green color
+                },
+                {
+                    name: 'Scope 3',
+                    type: 'bar',
+                    data: scope3Data,
+                    color: '#FAC858'  // Yellow color
+                }
+            ]
+        };
+
+        // Initialize the chart
+        const chart = echarts.init(document.getElementById('main'));
+        chart.setOption(option);
+    </script>
+</body>
+
+</html>
