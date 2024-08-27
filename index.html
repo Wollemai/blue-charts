@@ -116,8 +116,7 @@
         fetch('data.json')
             .then(response => response.json())
             .then(json_data => {
-                console.log(json_data)
-                data = json_data.data
+                const data = json_data.data;
                 // Display headings
                 const panel = document.getElementById('panel');
                 panel.innerHTML = `<h2>Climate Score: ${data.climate_score}, Data Quality: ${data.data_quality}, Area in Hectare: ${data.area_in_hectare}</h2>`;
@@ -142,14 +141,16 @@
             const farmNames = benchmarkingItems.map(item => item.farm_name);
             const values = benchmarkingItems.map(item => item.emission_intensity_per_hectare);
             const colors = benchmarkingItems.map(item => item.reference_farm ? 'blue' : 'lightblue');
+            const percentile = (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2); // Example percentile calculation
 
             const option = {
                 ...globalChartOptions,
+                title: { text: 'Benchmarking Emission Intensity per Hectare by Farm' },
                 xAxis: {
                     ...globalChartOptions.xAxis,
                     type: 'category',
                     data: farmNames,
-                    axisLabel: { show: false } // Hide x-axis labels
+                    axisLabel: { show: false }
                 },
                 yAxis: {
                     ...globalChartOptions.yAxis,
@@ -161,7 +162,17 @@
                     itemStyle: {
                         color: (params) => colors[params.dataIndex]
                     }
-                }]
+                }],
+                graphic: {
+                    type: 'text',
+                    left: 'center',
+                    top: 'bottom',
+                    style: {
+                        text: `Percentile: ${percentile}`,
+                        font: '14px "DM Sans"',
+                        fill: '#56637E'
+                    }
+                }
             };
 
             barChart.setOption(option);
@@ -169,13 +180,15 @@
 
         function initScatterPlot(benchmarkingItems) {
             const scatterPlot = echarts.init(document.getElementById('scatter-plot'));
+            // alert(JSON.stringify(benchmarkingItems))
             const data = benchmarkingItems.map(item => ({
-                value: [item.herdsize_per_hectare, item.emission_intensity_per_hectare],
+                value: [item.emission_per_hectare, item.herd_size_per_hectare],
                 itemStyle: { color: item.reference_farm ? 'blue' : 'lightblue' }
             }));
 
             const option = {
                 ...globalChartOptions,
+                title: { text: 'Benchmarking Emission Intensity per Hectare by Herdsize per Hectare' },
                 xAxis: {
                     ...globalChartOptions.xAxis,
                     type: 'value'
@@ -195,10 +208,10 @@
 
         function initTrendCharts(data) {
             const trends = [
-                { id: 'scope1-trend', items: data.scope1_total_emission_per_hectare_trend.benchmarking_items },
-                { id: 'scope2-trend', items: data.scope2_total_emission_per_hectare_trend.benchmarking_items },
-                { id: 'scope3-trend', items: data.scope3_total_emission_per_hectare_trend.benchmarking_items },
-                { id: 'total-trend', items: data.total_emission_per_hectare_trend.benchmarking_items }
+                { id: 'scope1-trend', items: data.scope1_total_emission_per_hectare_trend.benchmarking_items, title: 'Scope 1 Total Emission per Hectare Trend' },
+                { id: 'scope2-trend', items: data.scope2_total_emission_per_hectare_trend.benchmarking_items, title: 'Scope 2 Total Emission per Hectare Trend' },
+                { id: 'scope3-trend', items: data.scope3_total_emission_per_hectare_trend.benchmarking_items, title: 'Scope 3 Total Emission per Hectare Trend' },
+                { id: 'total-trend', items: data.total_emission_per_hectare_trend.benchmarking_items, title: 'Total Emission per Hectare Trend' }
             ];
 
             trends.forEach(trend => {
@@ -209,6 +222,7 @@
 
                 const option = {
                     ...globalChartOptions,
+                    title: { text: trend.title },
                     xAxis: {
                         ...globalChartOptions.xAxis,
                         type: 'category',
@@ -238,7 +252,7 @@
 
         function initNonBioChart(data) {
             const chart = echarts.init(document.getElementById('non-bio-chart'));
-            const categories = ['Scope 1', 'Scope 2', 'Scope 3', 'Total vs Benchmark Average'];
+            const categories = ["Scope 1", "Scope 1 Benchmark Average", "Scope 2", "Scope 2 Benchmark Average", "Scope 3", "Scope 3 Benchmark Average", "Total", "Benchmark Average"];
             const values = [
                 data.scope1, data.scope1_benchmark_average,
                 data.scope2, data.scope2_benchmark_average,
@@ -246,10 +260,16 @@
                 data.total, data.benchmark_average
             ];
 
-            const colors = ['blue', 'lightblue', 'green', 'lightgreen'];
+            const colors = [
+                '#1D62F4', '#C6D8FC',
+                '#1D62F4', '#C6D8FC',
+                '#1D62F4', '#C6D8FC',
+                '#1D62F4', '#C6D8FC'
+            ];
 
             const option = {
                 ...globalChartOptions,
+                title: { text: 'Non-Biological Emission Intensity per Hectare' },
                 xAxis: {
                     ...globalChartOptions.xAxis,
                     type: 'category',
@@ -263,7 +283,7 @@
                     data: values,
                     type: 'bar',
                     itemStyle: {
-                        color: (params) => colors[params.dataIndex % colors.length]
+                        color: (params) => colors[params.dataIndex]
                     }
                 }]
             };
