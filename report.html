@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Visualization with ECharts</title>
+    <!-- Import MUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@mui/material@5.11.0/dist/material.min.css">
+    <!-- Import ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <div style="padding: 20px;">
+        <!-- Panel for headings -->
+        <div id="panel" style="margin-bottom: 20px;"></div>
+        <!-- Panel for key information -->
+        <div id="key-info-panel" style="margin-bottom: 20px;"></div>
+        <!-- Container for charts -->
+        <div id="charts-container">
+            <div id="bar-chart" style="width: 1200px; height: 600px; margin-bottom: 20px;"></div>
+            <div id="scatter-plot" style="width: 1200px; height: 600px; margin-bottom: 20px;"></div>
+            <div id="trend-charts" style="display: flex; flex-wrap: wrap;">
+                <div id="scope1-trend" style="width: 600px; height: 300px;"></div>
+                <div id="scope2-trend" style="width: 600px; height: 300px;"></div>
+                <div id="scope3-trend" style="width: 600px; height: 300px;"></div>
+                <div id="total-trend" style="width: 600px; height: 300px;"></div>
+            </div>
+            <div id="non-bio-chart" style="width: 1200px; height: 600px; margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Load data.json file
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Display headings
+                const panel = document.getElementById('panel');
+                panel.innerHTML = `<h2>Climate Score: ${data.climate_score}, Data Quality: ${data.data_quality}, Area in Hectare: ${data.area_in_hectare}</h2>`;
+
+                // Display key information
+                const keyInfoPanel = document.getElementById('key-info-panel');
+                const keyInfoContent = Object.entries(data.key_information).map(([key, value]) => `<h5>${key}: ${value}</h5>`).join('');
+                keyInfoPanel.innerHTML = keyInfoContent;
+
+                // Initialize bar chart
+                initBarChart(data.benchmarking_emission_intensity_per_hectare_by_farm.benchmarking_items);
+                // Initialize scatter plot
+                initScatterPlot(data.benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare.benchmarking_items);
+                // Initialize trend charts
+                initTrendCharts(data);
+                // Initialize non-biological emissions chart
+                initNonBioChart(data.non_biological_emission_intensity_per_hectare);
+            });
+
+        function initBarChart(benchmarkingItems) {
+            const barChart = echarts.init(document.getElementById('bar-chart'));
+            const farmNames = benchmarkingItems.map(item => item.farm_name);
+            const values = benchmarkingItems.map(item => item.emission_intensity_per_hectare);
+            const colors = benchmarkingItems.map(item => item.reference_farm ? 'blue' : 'lightblue');
+
+            const option = {
+                xAxis: {
+                    type: 'category',
+                    data: farmNames,
+                    axisLabel: { show: false } // Hide x-axis labels
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: values,
+                    type: 'bar',
+                    itemStyle: {
+                        color: (params) => colors[params.dataIndex]
+                    }
+                }]
+            };
+
+            barChart.setOption(option);
+        }
+
+        function initScatterPlot(benchmarkingItems) {
+            const scatterPlot = echarts.init(document.getElementById('scatter-plot'));
+            const data = benchmarkingItems.map(item => ({
+                value: [item.herdsize_per_hectare, item.emission_intensity_per_hectare],
+                itemStyle: { color: item.reference_farm ? 'blue' : 'lightblue' }
+            }));
+
+            const option = {
+                xAxis: {
+                    type: 'value'
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    type: 'scatter',
+                    data: data
+                }]
+            };
+
+            scatterPlot.setOption(option);
+        }
+
+        function initTrendCharts(data) {
+            const trends = [
+                { id: 'scope1-trend', items: data.scope1_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'scope2-trend', items: data.scope2_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'scope3-trend', items: data.scope3_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'total-trend', items: data.total_emission_per_hectare_trend.benchmarking_items }
+            ];
+
+            trends.forEach(trend => {
+                const chart = echarts.init(document.getElementById(trend.id));
+                const years = trend.items.map(item => item.financial_year);
+                const refValues = trend.items.map(item => item.reference_farm_amount);
+                const avgValues = trend.items.map(item => item.average_of_farms);
+
+                const option = {
+                    xAxis: {
+                        type: 'category',
+                        data: years
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: refValues,
+                            type: 'bar',
+                            itemStyle: { color: 'blue' }
+                        },
+                        {
+                            data: avgValues,
+                            type: 'bar',
+                            itemStyle: { color: 'lightblue' }
+                        }
+                    ]
+                };
+
+                chart.setOption(option);
+            });
+        }
+
+        function initNonBioChart(data) {
+            const chart = echarts.init(document.getElementById('non-bio-chart'));
+            const categories = ['Scope 1', 'Scope 2', 'Scope 3', 'Total vs Benchmark Average'];
+            const values = [
+                data.scope1, data.scope1_benchmark_average,
+                data.scope2, data.scope2_benchmark_average,
+                data.scope3, data.scope3_benchmark_average,
+                data.total, data.benchmark_average
+            ];
+
+            const colors = ['blue', 'lightblue', 'green', 'lightgreen', 'red', 'lightcoral', 'purple', 'lavender'];
+
+            const option = {
+                xAxis: {
+                    type: 'category',
+                    data: categories
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: values,
+                    type: 'bar',
+                    itemStyle: {
+                        color: (params) => colors[params.dataIndex]
+                    }
+                }]
+            };
+
+            chart.setOption(option);
+        }
+    </script>
+</body>
+
+</html>

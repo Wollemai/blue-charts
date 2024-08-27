@@ -1,108 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <!-- Include the ECharts file you just downloaded -->
-    <script src="echarts.js"></script>
-    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <title>Data Visualization with ECharts</title>
+    <!-- Import MUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@mui/material@5.11.0/dist/material.min.css">
+    <!-- Import ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <!-- Import Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .chart-container {
+            width: 1200px;
+            height: 600px;
+            margin-bottom: 20px;
+        }
+
+        .trend-chart {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
 </head>
 
-<body style="padding: 2em;">
-    <div id="main" style="width: 600px; height: 700px; margin: 16px;"></div>
-    <div id="chartScatter" style="width: 600px; height: 700px; margin: 16px;"></div>
-    <div id="chartBox" style="width: 600px; height: 700px; margin: 16px;"></div>
-    <div id="linePlot" style="width: 1200px; height: 600px; margin: 16px;"></div>
-    <script type="text/javascript">
-        // Initialize the echarts instance based on the prepared dom
+<body>
+    <div>
+        <!-- Panel for headings -->
+        <div id="panel" style="margin-bottom: 20px;"></div>
+        <!-- Panel for key information -->
+        <div id="key-info-panel" style="margin-bottom: 20px;"></div>
+        <!-- Container for charts -->
+        <div id="charts-container">
+            <div id="bar-chart" class="chart-container"></div>
+            <div id="scatter-plot" class="chart-container"></div>
+            <div id="trend-charts" style="display: flex; flex-wrap: wrap;">
+                <div id="scope1-trend" class="trend-chart"></div>
+                <div id="scope2-trend" class="trend-chart"></div>
+                <div id="scope3-trend" class="trend-chart"></div>
+                <div id="total-trend" class="trend-chart"></div>
+            </div>
+            <div id="non-bio-chart" class="chart-container" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <script>
         const globalChartOptions = {
-            // Global palette:
             color: [
-                "#C6D8FC",
-                "#1D2F53",
-                "#1E4089",
-                "#1E52BF",
-                "#1D62F4",
-                "#5689F7",
-                "#8EB0F9",
-                "#C6D8FC",
+                "#C6D8FC", "#1D2F53", "#1E4089", "#1E52BF", "#1D62F4",
+                "#5689F7", "#8EB0F9", "#C6D8FC"
             ],
             xAxis: {
                 axisLine: {
-                    lineStyle: {
-                        color: '#D9D9D9' // Custom color for the y-axis
-                    }
-                },
-                textStyle: {
-                    fontFamily: "Figtree",
-                    textColor: '#000'
+                    lineStyle: { color: '#D9D9D9' }
                 },
                 axisLabel: {
-                    color: '#56637E'
+                    color: '#56637E',
+                    fontFamily: "Figtree"
                 },
                 nameTextStyle: {
-                    color: '#8E97A9' // Custom color for the x-axis name
+                    color: '#8E97A9',
+                    fontFamily: "Figtree"
                 },
                 nameLocation: 'center',
                 nameGap: 40,
             },
             yAxis: {
-                nameLocation: 'center',
-                nameGap: 40,
-                title: {
-                    textStyle: {
-                        fontFamily: "Figtree",
-                        textColor: '#000'
-                    },
-                },
                 axisLine: {
-                    lineStyle: {
-                        color: '#D9D9D9' // Custom color for the y-axis
-                    }
+                    lineStyle: { color: '#D9D9D9' }
                 },
                 axisLabel: {
-                    color: '#56637E'
+                    color: '#56637E',
+                    fontFamily: "Figtree"
                 },
                 nameTextStyle: {
-                    color: '#8E97A9' // Custom color for the x-axis name
-                }
+                    color: '#8E97A9',
+                    fontFamily: "Figtree"
+                },
+                nameLocation: 'center',
+                nameGap: 40,
             },
             legend: {
-                borderRadius: 8, borderColor: "#C6D8FC", borderWidth: 1, padding: 16,
+                borderRadius: 8,
+                borderColor: "#C6D8FC",
+                borderWidth: 1,
+                padding: 16,
                 textStyle: {
-                    fontFamily: "Figtree",
-                    textColor: '#56637E'
-                },
+                    color: '#56637E',
+                    fontFamily: "Figtree"
+                }
             },
             title: {
                 textStyle: {
                     fontFamily: "Figtree",
                     fontWeight: 'normal',
                     fontSize: 24,
-                    color: '#1D62F4',
-                },
-            },
-            itemStyle: {
-                borderRadius: [4, 4, 0, 0],
+                    color: '#1D62F4'
+                }
             },
             textStyle: {
-                fontFamily: "DM Sans",
-            },
-            series: {
-                type: "bar",
-                color: "#C6D8FC",
-            },
-        };
-        const colors = {
-            currentFarm: '#1D62F4'
+                fontFamily: "DM Sans"
+            }
         };
 
+        // Load data.json file
+        fetch('data.json')
+            .then(response => response.json())
+            .then(json_data => {
+                console.log(json_data)
+                data = json_data.data
+                // Display headings
+                const panel = document.getElementById('panel');
+                panel.innerHTML = `<h2>Climate Score: ${data.climate_score}, Data Quality: ${data.data_quality}, Area in Hectare: ${data.area_in_hectare}</h2>`;
 
+                // Display key information
+                const keyInfoPanel = document.getElementById('key-info-panel');
+                const keyInfoContent = Object.entries(data.key_information).map(([key, value]) => `<h5>${key}: ${value}</h5>`).join('');
+                keyInfoPanel.innerHTML = keyInfoContent;
+
+                // Initialize bar chart
+                initBarChart(data.benchmarking_emission_intensity_per_hectare_by_farm.benchmarking_items);
+                // Initialize scatter plot
+                initScatterPlot(data.benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare.benchmarking_items);
+                // Initialize trend charts
+                initTrendCharts(data);
+                // Initialize non-biological emissions chart
+                initNonBioChart(data.non_biological_emission_intensity_per_hectare);
+            });
+
+        function initBarChart(benchmarkingItems) {
+            const barChart = echarts.init(document.getElementById('bar-chart'));
+            const farmNames = benchmarkingItems.map(item => item.farm_name);
+            const values = benchmarkingItems.map(item => item.emission_intensity_per_hectare);
+            const colors = benchmarkingItems.map(item => item.reference_farm ? 'blue' : 'lightblue');
+
+            const option = {
+                ...globalChartOptions,
+                xAxis: {
+                    ...globalChartOptions.xAxis,
+                    type: 'category',
+                    data: farmNames,
+                    axisLabel: { show: false } // Hide x-axis labels
+                },
+                yAxis: {
+                    ...globalChartOptions.yAxis,
+                    type: 'value'
+                },
+                series: [{
+                    data: values,
+                    type: 'bar',
+                    itemStyle: {
+                        color: (params) => colors[params.dataIndex]
+                    }
+                }]
+            };
+
+            barChart.setOption(option);
+        }
+
+        function initScatterPlot(benchmarkingItems) {
+            const scatterPlot = echarts.init(document.getElementById('scatter-plot'));
+            const data = benchmarkingItems.map(item => ({
+                value: [item.herdsize_per_hectare, item.emission_intensity_per_hectare],
+                itemStyle: { color: item.reference_farm ? 'blue' : 'lightblue' }
+            }));
+
+            const option = {
+                ...globalChartOptions,
+                xAxis: {
+                    ...globalChartOptions.xAxis,
+                    type: 'value'
+                },
+                yAxis: {
+                    ...globalChartOptions.yAxis,
+                    type: 'value'
+                },
+                series: [{
+                    type: 'scatter',
+                    data: data
+                }]
+            };
+
+            scatterPlot.setOption(option);
+        }
+
+        function initTrendCharts(data) {
+            const trends = [
+                { id: 'scope1-trend', items: data.scope1_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'scope2-trend', items: data.scope2_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'scope3-trend', items: data.scope3_total_emission_per_hectare_trend.benchmarking_items },
+                { id: 'total-trend', items: data.total_emission_per_hectare_trend.benchmarking_items }
+            ];
+
+            trends.forEach(trend => {
+                const chart = echarts.init(document.getElementById(trend.id));
+                const years = trend.items.map(item => item.financial_year);
+                const refValues = trend.items.map(item => item.reference_farm_amount);
+                const avgValues = trend.items.map(item => item.average_of_farms);
+
+                const option = {
+                    ...globalChartOptions,
+                    xAxis: {
+                        ...globalChartOptions.xAxis,
+                        type: 'category',
+                        data: years
+                    },
+                    yAxis: {
+                        ...globalChartOptions.yAxis,
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: refValues,
+                            type: 'bar',
+                            itemStyle: { color: 'blue' }
+                        },
+                        {
+                            data: avgValues,
+                            type: 'bar',
+                            itemStyle: { color: 'lightblue' }
+                        }
+                    ]
+                };
+
+                chart.setOption(option);
+            });
+        }
+
+        function initNonBioChart(data) {
+            const chart = echarts.init(document.getElementById('non-bio-chart'));
+            const categories = ['Scope 1', 'Scope 2', 'Scope 3', 'Total vs Benchmark Average'];
+            const values = [
+                data.scope1, data.scope1_benchmark_average,
+                data.scope2, data.scope2_benchmark_average,
+                data.scope3, data.scope3_benchmark_average,
+                data.total, data.benchmark_average
+            ];
+
+            const colors = ['blue', 'lightblue', 'green', 'lightgreen'];
+
+            const option = {
+                ...globalChartOptions,
+                xAxis: {
+                    ...globalChartOptions.xAxis,
+                    type: 'category',
+                    data: categories
+                },
+                yAxis: {
+                    ...globalChartOptions.yAxis,
+                    type: 'value'
+                },
+                series: [{
+                    data: values,
+                    type: 'bar',
+                    itemStyle: {
+                        color: (params) => colors[params.dataIndex % colors.length]
+                    }
+                }]
+            };
+
+            chart.setOption(option);
+        }
     </script>
 </body>
 

@@ -1,0 +1,788 @@
+{
+    "status": "success",
+    "data": {
+        "climate_score": "3.8",
+        "data_quality": "2.5",
+        "area_in_hectare": "100000",
+        "asset_id": "43523c3f-8709-4241-be6e-c8438d4a208f",
+        "asset_name": "Apra",
+        "key_information": {
+            "area": "100000",
+            "carbon_stock": "0",
+            "herd_size": "9211",
+            "removals": "0",
+            "sequestration_intensity": "0",
+            "gross_emissions": "19925.903",
+            "gross_emissions_per_AE": "2.1632725002714146",
+            "gross_emissions_per_hectare": "0.19925902999999998",
+            "herd_intensity": "0.09211"
+        },
+        "benchmarking_emission_intensity_per_hectare_by_farm": {
+            "financial_year": "2023",
+            "benchmarking_items": [
+                {
+                    "farm_id": "de2482bb-92e4-49bd-af7c-0af2a6a14672",
+                    "farm_name": "Farm_24",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.028052496"
+                },
+                {
+                    "farm_id": "5ea8e694-83ec-4e1f-8e9f-b4ea50f41a64",
+                    "farm_name": "Farm_6",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.042258250075688765"
+                },
+                {
+                    "farm_id": "460fd949-c1fc-46ab-87ac-e8935cae936c",
+                    "farm_name": "Farm_20",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.046171938"
+                },
+                {
+                    "farm_id": "b15427f3-3fe3-4394-87bc-f2b93b13d918",
+                    "farm_name": "Farm_21",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.046171938"
+                },
+                {
+                    "farm_id": "55dd96c1-14c2-4ea9-a9ec-ea9a0b0831cd",
+                    "farm_name": "Farm_22",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.046171938"
+                },
+                {
+                    "farm_id": "0867200a-ba64-419e-925a-248a94ec8032",
+                    "farm_name": "Farm_18",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.0466687075"
+                },
+                {
+                    "farm_id": "2145a150-eda8-42e8-b55c-e76b494184a4",
+                    "farm_name": "Farm_16",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.05100012"
+                },
+                {
+                    "farm_id": "7316648c-a627-4fc5-9111-0b4ff6f10385",
+                    "farm_name": "Farm_3",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.06100696702275894"
+                },
+                {
+                    "farm_id": "f415aaca-da43-4967-af53-be3a82f70995",
+                    "farm_name": "Farm_23",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.067795758"
+                },
+                {
+                    "farm_id": "9aac330e-ba5f-4994-8d65-e3c501275c36",
+                    "farm_name": "Farm_19",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.06874704799999999"
+                },
+                {
+                    "farm_id": "e64964ff-785e-420a-8aba-e10f6d8440d4",
+                    "farm_name": "Farm_4",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.0714084928229665"
+                },
+                {
+                    "farm_id": "723861fc-310a-40c4-a054-3660921c3bd9",
+                    "farm_name": "Farm_10",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.09575951807228915"
+                },
+                {
+                    "farm_id": "6aff8e21-e4ce-4d75-be03-0d51a5523e7c",
+                    "farm_name": "Farm_17",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.10155584333333334"
+                },
+                {
+                    "farm_id": "e1e73098-7352-4c32-ba9d-6ee85577e783",
+                    "farm_name": "Farm_15",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.10297656666666666"
+                },
+                {
+                    "farm_id": "a3fd4ddf-2634-4ca7-a742-356142c9f7ee",
+                    "farm_name": "Farm_8",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.10742651953056577"
+                },
+                {
+                    "farm_id": "e896c620-fdec-46a9-be4d-f864cb0eaa1c",
+                    "farm_name": "Farm_9",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.17442553191489363"
+                },
+                {
+                    "farm_id": "03c26475-d653-4458-a77a-8ed10bca2f54",
+                    "farm_name": "Farm_29",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.17557745"
+                },
+                {
+                    "farm_id": "994188a1-ed9d-49df-b9a2-17668baa8784",
+                    "farm_name": "Farm_30",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.17557745"
+                },
+                {
+                    "reference_farm": true,
+                    "farm_id": "43523c3f-8709-4241-be6e-c8438d4a208f",
+                    "farm_name": "Apra",
+                    "emission_intensity_per_hectare": "0.19925902999999998"
+                },
+                {
+                    "farm_id": "f2dc37cb-feab-410e-bf81-7069915734a9",
+                    "farm_name": "Farm_13",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.20692075"
+                },
+                {
+                    "farm_id": "8baa5a04-9729-4964-bee7-2038450b4d57",
+                    "farm_name": "Farm_14",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.211202"
+                },
+                {
+                    "farm_id": "6bf1972d-6289-4c67-9212-361ee1a0f9e3",
+                    "farm_name": "Farm_31",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.23410326666666667"
+                },
+                {
+                    "farm_id": "2fed7f21-2290-4553-8b26-679df4a5ce2a",
+                    "farm_name": "Farm_32",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.23410326666666667"
+                },
+                {
+                    "farm_id": "43ae5399-1a83-4078-a688-09c052339568",
+                    "farm_name": "Farm_40",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.257298"
+                },
+                {
+                    "farm_id": "f44bb9d6-be28-4a49-958d-754daa6ce6bc",
+                    "farm_name": "Farm_7",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.26464311814859925"
+                },
+                {
+                    "farm_id": "b5e3b8d3-1a69-4369-af0f-a2ba8eb70eb6",
+                    "farm_name": "Farm_41",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "ffe8aad2-718e-48aa-a053-6de2bc6dd21e",
+                    "farm_name": "Farm_42",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "18d6b185-5946-4511-8436-40936726adb4",
+                    "farm_name": "Farm_43",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "8d8bedce-f3a5-4b3e-ace0-a9b8bacf22d4",
+                    "farm_name": "Farm_44",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "f2222b88-456f-41a1-be28-7bd9f01179fc",
+                    "farm_name": "Farm_45",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "1482d97f-efe8-400a-9c72-c5e771bb5f45",
+                    "farm_name": "Farm_50",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3159788"
+                },
+                {
+                    "farm_id": "6084f444-8cf2-40e6-b89c-1500fffdd210",
+                    "farm_name": "Farm_1",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.33133925"
+                },
+                {
+                    "farm_id": "369e68e5-3dd0-4819-8222-b38da9cb8609",
+                    "farm_name": "Farm_2",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.33133925"
+                },
+                {
+                    "farm_id": "f6d66135-075c-4408-8107-ec84436c9875",
+                    "farm_name": "Farm_33",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3511549"
+                },
+                {
+                    "farm_id": "06cbfddb-dd8c-4dd7-9a18-4cb39b7f903b",
+                    "farm_name": "Farm_34",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.3511549"
+                },
+                {
+                    "farm_id": "1fb86c78-5ee6-47ef-ac40-f6278818dd2a",
+                    "farm_name": "Farm_5",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.35245855437665785"
+                },
+                {
+                    "farm_id": "695c1419-0679-42ac-a01e-7af147a7bdb8",
+                    "farm_name": "Farm_38",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.52091"
+                },
+                {
+                    "farm_id": "a48fd4c2-540a-49ba-9804-70768426db16",
+                    "farm_name": "Farm_49",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.5844996"
+                },
+                {
+                    "farm_id": "daab481a-b1d0-486e-bc29-926f144e26fd",
+                    "farm_name": "Farm_11",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.5871944"
+                },
+                {
+                    "farm_id": "556ca486-85ab-4c76-a806-b51f6f7da1b5",
+                    "farm_name": "Farm_12",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.6087815384615385"
+                },
+                {
+                    "farm_id": "1e9eeeaf-8b50-46db-bc01-b11b430b79f9",
+                    "farm_name": "Farm_35",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.7023098"
+                },
+                {
+                    "farm_id": "27d57247-4099-4918-a667-4a8f00361e5c",
+                    "farm_name": "Farm_36",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.7023098"
+                },
+                {
+                    "farm_id": "7f31d00f-4402-43d9-89c3-4f28ff90aca8",
+                    "farm_name": "Farm_48",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "0.8529766"
+                },
+                {
+                    "farm_id": "30bb7900-edb8-4acd-8dae-10c6be58aa40",
+                    "farm_name": "Farm_37",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "1.048202"
+                },
+                {
+                    "farm_id": "f9b19428-debf-457b-b910-bd182c89e20e",
+                    "farm_name": "Farm_39",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "1.048202"
+                },
+                {
+                    "farm_id": "98abd593-9408-4d42-be4d-3471290024b7",
+                    "farm_name": "Farm_47",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "1.1214972"
+                },
+                {
+                    "farm_id": "be0de8c5-cb3f-4a7d-b986-e4054b104600",
+                    "farm_name": "Farm_46",
+                    "reference_farm": false,
+                    "emission_intensity_per_hectare": "1.3899742"
+                }
+            ],
+            "percentile_of_reference_farm": "38.297872340425535"
+        },
+        "benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare": {
+            "financial_year": "2023",
+            "benchmarking_items": [
+                {
+                    "farm_id": "de2482bb-92e4-49bd-af7c-0af2a6a14672",
+                    "farm_name": "Farm_24",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.028052496",
+                    "herd_size_per_hectare": "0.01356748"
+                },
+                {
+                    "farm_id": "5ea8e694-83ec-4e1f-8e9f-b4ea50f41a64",
+                    "farm_name": "Farm_6",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.042258250075688765",
+                    "herd_size_per_hectare": "0.020102114960425587"
+                },
+                {
+                    "farm_id": "460fd949-c1fc-46ab-87ac-e8935cae936c",
+                    "farm_name": "Farm_20",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.046171938",
+                    "herd_size_per_hectare": "0.022330556"
+                },
+                {
+                    "farm_id": "b15427f3-3fe3-4394-87bc-f2b93b13d918",
+                    "farm_name": "Farm_21",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.046171938",
+                    "herd_size_per_hectare": "0.022330556"
+                },
+                {
+                    "farm_id": "55dd96c1-14c2-4ea9-a9ec-ea9a0b0831cd",
+                    "farm_name": "Farm_22",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.046171938",
+                    "herd_size_per_hectare": "0.022330556"
+                },
+                {
+                    "farm_id": "0867200a-ba64-419e-925a-248a94ec8032",
+                    "farm_name": "Farm_18",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.0466687075",
+                    "herd_size_per_hectare": "0.02273106"
+                },
+                {
+                    "farm_id": "2145a150-eda8-42e8-b55c-e76b494184a4",
+                    "farm_name": "Farm_16",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.05100012",
+                    "herd_size_per_hectare": "0.02428540666666667"
+                },
+                {
+                    "farm_id": "7316648c-a627-4fc5-9111-0b4ff6f10385",
+                    "farm_name": "Farm_3",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.06100696702275894",
+                    "herd_size_per_hectare": "0.027864963616658925"
+                },
+                {
+                    "farm_id": "9aac330e-ba5f-4994-8d65-e3c501275c36",
+                    "farm_name": "Farm_19",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.06874704799999999",
+                    "herd_size_per_hectare": "0.032565164"
+                },
+                {
+                    "farm_id": "f415aaca-da43-4967-af53-be3a82f70995",
+                    "farm_name": "Farm_23",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.067795758",
+                    "herd_size_per_hectare": "0.032777728000000006"
+                },
+                {
+                    "farm_id": "e64964ff-785e-420a-8aba-e10f6d8440d4",
+                    "farm_name": "Farm_4",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.0714084928229665",
+                    "herd_size_per_hectare": "0.03347086466165414"
+                },
+                {
+                    "farm_id": "723861fc-310a-40c4-a054-3660921c3bd9",
+                    "farm_name": "Farm_10",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.09575951807228915",
+                    "herd_size_per_hectare": "0.04409487951807229"
+                },
+                {
+                    "farm_id": "e1e73098-7352-4c32-ba9d-6ee85577e783",
+                    "farm_name": "Farm_15",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.10297656666666666",
+                    "herd_size_per_hectare": "0.04900011111111111"
+                },
+                {
+                    "farm_id": "6aff8e21-e4ce-4d75-be03-0d51a5523e7c",
+                    "farm_name": "Farm_17",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.10155584333333334",
+                    "herd_size_per_hectare": "0.049016931666666666"
+                },
+                {
+                    "farm_id": "a3fd4ddf-2634-4ca7-a742-356142c9f7ee",
+                    "farm_name": "Farm_8",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.10742651953056577",
+                    "herd_size_per_hectare": "0.05194911543177439"
+                },
+                {
+                    "farm_id": "03c26475-d653-4458-a77a-8ed10bca2f54",
+                    "farm_name": "Farm_29",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.17557745",
+                    "herd_size_per_hectare": "0.0794752"
+                },
+                {
+                    "farm_id": "994188a1-ed9d-49df-b9a2-17668baa8784",
+                    "farm_name": "Farm_30",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.17557745",
+                    "herd_size_per_hectare": "0.0794752"
+                },
+                {
+                    "farm_id": "e896c620-fdec-46a9-be4d-f864cb0eaa1c",
+                    "farm_name": "Farm_9",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.17442553191489363",
+                    "herd_size_per_hectare": "0.08119825918762089"
+                },
+                {
+                    "reference_farm": true,
+                    "farm_id": "43523c3f-8709-4241-be6e-c8438d4a208f",
+                    "farm_name": "Apra",
+                    "emission_per_hectare": "0.19925902999999998",
+                    "herd_size_per_hectare": "0.09211"
+                },
+                {
+                    "farm_id": "f2dc37cb-feab-410e-bf81-7069915734a9",
+                    "farm_name": "Farm_13",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.20692075",
+                    "herd_size_per_hectare": "0.0992995"
+                },
+                {
+                    "farm_id": "8baa5a04-9729-4964-bee7-2038450b4d57",
+                    "farm_name": "Farm_14",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.211202",
+                    "herd_size_per_hectare": "0.1002639"
+                },
+                {
+                    "farm_id": "6bf1972d-6289-4c67-9212-361ee1a0f9e3",
+                    "farm_name": "Farm_31",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.23410326666666667",
+                    "herd_size_per_hectare": "0.10596693333333333"
+                },
+                {
+                    "farm_id": "2fed7f21-2290-4553-8b26-679df4a5ce2a",
+                    "farm_name": "Farm_32",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.23410326666666667",
+                    "herd_size_per_hectare": "0.10596693333333333"
+                },
+                {
+                    "farm_id": "43ae5399-1a83-4078-a688-09c052339568",
+                    "farm_name": "Farm_40",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.257298",
+                    "herd_size_per_hectare": "0.12150920000000001"
+                },
+                {
+                    "farm_id": "f44bb9d6-be28-4a49-958d-754daa6ce6bc",
+                    "farm_name": "Farm_7",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.26464311814859925",
+                    "herd_size_per_hectare": "0.12310678034916768"
+                },
+                {
+                    "farm_id": "b5e3b8d3-1a69-4369-af0f-a2ba8eb70eb6",
+                    "farm_name": "Farm_41",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "ffe8aad2-718e-48aa-a053-6de2bc6dd21e",
+                    "farm_name": "Farm_42",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "18d6b185-5946-4511-8436-40936726adb4",
+                    "farm_name": "Farm_43",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "8d8bedce-f3a5-4b3e-ace0-a9b8bacf22d4",
+                    "farm_name": "Farm_44",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "f2222b88-456f-41a1-be28-7bd9f01179fc",
+                    "farm_name": "Farm_45",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "1482d97f-efe8-400a-9c72-c5e771bb5f45",
+                    "farm_name": "Farm_50",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3159788",
+                    "herd_size_per_hectare": "0.15293320000000002"
+                },
+                {
+                    "farm_id": "6084f444-8cf2-40e6-b89c-1500fffdd210",
+                    "farm_name": "Farm_1",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.33133925",
+                    "herd_size_per_hectare": "0.15599225"
+                },
+                {
+                    "farm_id": "369e68e5-3dd0-4819-8222-b38da9cb8609",
+                    "farm_name": "Farm_2",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.33133925",
+                    "herd_size_per_hectare": "0.15599225"
+                },
+                {
+                    "farm_id": "f6d66135-075c-4408-8107-ec84436c9875",
+                    "farm_name": "Farm_33",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3511549",
+                    "herd_size_per_hectare": "0.1589504"
+                },
+                {
+                    "farm_id": "06cbfddb-dd8c-4dd7-9a18-4cb39b7f903b",
+                    "farm_name": "Farm_34",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.3511549",
+                    "herd_size_per_hectare": "0.1589504"
+                },
+                {
+                    "farm_id": "1fb86c78-5ee6-47ef-ac40-f6278818dd2a",
+                    "farm_name": "Farm_5",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.35245855437665785",
+                    "herd_size_per_hectare": "0.16769844164456232"
+                },
+                {
+                    "farm_id": "695c1419-0679-42ac-a01e-7af147a7bdb8",
+                    "farm_name": "Farm_38",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.52091",
+                    "herd_size_per_hectare": "0.2502736"
+                },
+                {
+                    "farm_id": "a48fd4c2-540a-49ba-9804-70768426db16",
+                    "farm_name": "Farm_49",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.5844996",
+                    "herd_size_per_hectare": "0.28176480000000004"
+                },
+                {
+                    "farm_id": "daab481a-b1d0-486e-bc29-926f144e26fd",
+                    "farm_name": "Farm_11",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.5871944",
+                    "herd_size_per_hectare": "0.2830638"
+                },
+                {
+                    "farm_id": "556ca486-85ab-4c76-a806-b51f6f7da1b5",
+                    "farm_name": "Farm_12",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.6087815384615385",
+                    "herd_size_per_hectare": "0.293852"
+                },
+                {
+                    "farm_id": "1e9eeeaf-8b50-46db-bc01-b11b430b79f9",
+                    "farm_name": "Farm_35",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.7023098",
+                    "herd_size_per_hectare": "0.3179008"
+                },
+                {
+                    "farm_id": "27d57247-4099-4918-a667-4a8f00361e5c",
+                    "farm_name": "Farm_36",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.7023098",
+                    "herd_size_per_hectare": "0.3179008"
+                },
+                {
+                    "farm_id": "7f31d00f-4402-43d9-89c3-4f28ff90aca8",
+                    "farm_name": "Farm_48",
+                    "reference_farm": false,
+                    "emission_per_hectare": "0.8529766",
+                    "herd_size_per_hectare": "0.41057039999999995"
+                },
+                {
+                    "farm_id": "30bb7900-edb8-4acd-8dae-10c6be58aa40",
+                    "farm_name": "Farm_37",
+                    "reference_farm": false,
+                    "emission_per_hectare": "1.048202",
+                    "herd_size_per_hectare": "0.5079108"
+                },
+                {
+                    "farm_id": "f9b19428-debf-457b-b910-bd182c89e20e",
+                    "farm_name": "Farm_39",
+                    "reference_farm": false,
+                    "emission_per_hectare": "1.048202",
+                    "herd_size_per_hectare": "0.5079108"
+                },
+                {
+                    "farm_id": "98abd593-9408-4d42-be4d-3471290024b7",
+                    "farm_name": "Farm_47",
+                    "reference_farm": false,
+                    "emission_per_hectare": "1.1214972",
+                    "herd_size_per_hectare": "0.5394021999999999"
+                },
+                {
+                    "farm_id": "be0de8c5-cb3f-4a7d-b986-e4054b104600",
+                    "farm_name": "Farm_46",
+                    "reference_farm": false,
+                    "emission_per_hectare": "1.3899742",
+                    "herd_size_per_hectare": "0.6682078"
+                }
+            ],
+            "percentile_of_reference_farm": "38.297872340425535"
+        },
+        "total_emission_per_hectare_trend": {
+            "emissionScope": "Total",
+            "financial_year": "2023",
+            "benchmarking_items": [
+                {
+                    "financial_year": "2023",
+                    "max_of_farms": "1.3899742",
+                    "min_of_farms": "0.028052496",
+                    "average_of_farms": "0.3412434723317237",
+                    "reference_farm_amount": "0.19816574"
+                },
+                {
+                    "financial_year": "2030",
+                    "max_of_farms": "1.3899742",
+                    "min_of_farms": "0.028052496",
+                    "average_of_farms": "0.3412434723317237",
+                    "reference_farm_amount": "0.21289936"
+                },
+                {
+                    "financial_year": "2040",
+                    "max_of_farms": "1.3899742",
+                    "min_of_farms": "0.028052496",
+                    "average_of_farms": "0.3412434723317237",
+                    "reference_farm_amount": "0.21283042000000002"
+                },
+                {
+                    "financial_year": "2050",
+                    "max_of_farms": "1.3899742",
+                    "min_of_farms": "0.028052496",
+                    "average_of_farms": "0.3412434723317237",
+                    "reference_farm_amount": "0.2138979"
+                }
+            ]
+        },
+        "scope1_total_emission_per_hectare_trend": {
+            "emissionScope": "Scope1",
+            "benchmarking_items": [
+                {
+                    "financial_year": "2023",
+                    "max_of_farms": "1.38247",
+                    "min_of_farms": "0.027907392",
+                    "average_of_farms": "0.3394899879006205",
+                    "reference_farm_amount": "0.19816574"
+                },
+                {
+                    "financial_year": "2030",
+                    "max_of_farms": "1.38247",
+                    "min_of_farms": "0.027907392",
+                    "average_of_farms": "0.3394899879006205",
+                    "reference_farm_amount": "0.21289936"
+                },
+                {
+                    "financial_year": "2040",
+                    "max_of_farms": "1.38247",
+                    "min_of_farms": "0.027907392",
+                    "average_of_farms": "0.3394899879006205",
+                    "reference_farm_amount": "0.21283042000000002"
+                },
+                {
+                    "financial_year": "2050",
+                    "max_of_farms": "1.38247",
+                    "min_of_farms": "0.027907392",
+                    "average_of_farms": "0.3394899879006205",
+                    "reference_farm_amount": "0.2138979"
+                }
+            ]
+        },
+        "scope2_total_emission_per_hectare_trend": {
+            "emissionScope": "Scope2",
+            "benchmarking_items": [
+                {
+                    "financial_year": "2023",
+                    "max_of_farms": "0.002144",
+                    "min_of_farms": "0.000034671999999999996",
+                    "average_of_farms": "0.00043493445397275164",
+                    "reference_farm_amount": "0.00029859"
+                },
+                {
+                    "financial_year": "2030",
+                    "max_of_farms": "0.002144",
+                    "min_of_farms": "0.000034671999999999996",
+                    "average_of_farms": "0.00043493445397275164",
+                    "reference_farm_amount": "0.00030132"
+                },
+                {
+                    "financial_year": "2040",
+                    "max_of_farms": "0.002144",
+                    "min_of_farms": "0.000034671999999999996",
+                    "average_of_farms": "0.00043493445397275164",
+                    "reference_farm_amount": "0.00030121"
+                },
+                {
+                    "financial_year": "2050",
+                    "max_of_farms": "0.002144",
+                    "min_of_farms": "0.000034671999999999996",
+                    "average_of_farms": "0.00043493445397275164",
+                    "reference_farm_amount": "0.00030273"
+                }
+            ]
+        },
+        "scope3_total_emission_per_hectare_trend": {
+            "emissionScope": "Scope3",
+            "benchmarking_items": [
+                {
+                    "financial_year": "2023",
+                    "max_of_farms": "0.00536",
+                    "min_of_farms": "0.000110434",
+                    "average_of_farms": "0.0013185496031365808",
+                    "reference_farm_amount": "0.0007947"
+                },
+                {
+                    "financial_year": "2030",
+                    "max_of_farms": "0.00536",
+                    "min_of_farms": "0.000110434",
+                    "average_of_farms": "0.0013185496031365808",
+                    "reference_farm_amount": "0.00080196"
+                },
+                {
+                    "financial_year": "2040",
+                    "max_of_farms": "0.00536",
+                    "min_of_farms": "0.000110434",
+                    "average_of_farms": "0.0013185496031365808",
+                    "reference_farm_amount": "0.0008016599999999999"
+                },
+                {
+                    "financial_year": "2050",
+                    "max_of_farms": "0.00536",
+                    "min_of_farms": "0.000110434",
+                    "average_of_farms": "0.0013185496031365808",
+                    "reference_farm_amount": "0.00080572"
+                }
+            ]
+        },
+        "non_biological_emission_intensity_per_hectare": {
+            "financial": "2023",
+            "total": "0.00415461",
+            "scope1": "0.00306132",
+            "scope1_benchmark_average": "0.0010996934782608692",
+            "scope2": "0.00029859",
+            "scope2_benchmark_average": "0.00009238173913043478",
+            "scope3": "0.0007947",
+            "scope3_benchmark_average": "0.00028281434782608704",
+            "benchmark_average": "0.0014748895652173925"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+given the attached json file:
+
+please use mui and echarts library on a html with embedded javascript to render the attributes from this json. Display the following UI components:
+
+0. this html file with embedded javascript should first load a file call data.json that is in the same format as the attached json file, the width of the charts should be 1200px and height is 600px
+1. climate_score, data_quality, area_in_hectare as heading text within a panel
+2. display key_information object as heading5 text within a panel
+3. use benchmarking_emission_intensity_per_hectare_by_farm's benchmarking_items on a histogram (bar chart for echarts), with reference_farm that are true as blue color, the rest of the bars as lightblue color, farm_name as x-axis , but don't show the x-axis legends, emission_intensity_per_hectare as values for y-axis, also show precentile value under the histogram chart. add title to chart as - benchmarking_emission_intensity_per_hectare_by_farm
+4. use benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare's benchmarking_items on a scatter plot (echarts), with emission_intensity_per_hectare for y-axis value and herdsize_per_hectare for x-axis value, also show the farm with reference_farm as true as blue color, the rest of the scatter plot data point as lightblue color. add title to chart as - benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare
+5. for scope1_total_emission_per_hectare_trend, total_emission_per_hectare_trend, scope2_total_emission_per_hectare_trend, scope3_total_emission_per_hectare_trend:
+use the benchmarking_items to plot 4 individual bar chart with 2 bars next to each other for each x-axis value, with financial_year of each item as the x-axis value where years are in ascending order, for the left bar, show as blue color with value from reference_farm_amount and the right bar as lightblue color with value from average_of_farms. add title respectively to the pattern like previous two charts to each charts.
+6. use non_biological_emission_intensity_per_hectare to plot a bar chart with 8 bars, the bar values on y-axis will be base on scope1, scope1_benchmark_average, scope2, scope2_benchmark_average, scope3, scope3_benchmark_average, total, benchmark_average. Each pairs should have similiar color : 
+scope1, scope1_benchmark_average
+scope2, scope2_benchmark_average
+scope3, scope3_benchmark_average
+total, benchmark_average
+and each pair belows to one value in x-axis ["scope1", "scope1_benchmark_average", "scope2", "scope2_benchmark_average" , "scope3" , "scope3_benchmark_average", "total" , "benchmark average"]
+add title to chart.
