@@ -119,7 +119,7 @@
                 const data = json_data.data;
                 // Display headings
                 const panel = document.getElementById('panel');
-                panel.innerHTML = `<h2>Climate Score: ${data.climate_score}, Data Quality: ${data.data_quality}, Area in Hectare: ${data.area_in_hectare}</h2>`;
+                panel.innerHTML = `<h2>Climate Score: ${data.climate_score}<br/>Data Quality: ${data.data_quality}<br/>Area in Hectare: ${data.area_in_hectare}</h2>`;
 
                 // Display key information
                 const keyInfoPanel = document.getElementById('key-info-panel');
@@ -252,7 +252,7 @@
 
         function initNonBioChart(data) {
             const chart = echarts.init(document.getElementById('non-bio-chart'));
-            const categories = ["Scope 1", "Scope 1 Benchmark Average", "Scope 2", "Scope 2 Benchmark Average", "Scope 3", "Scope 3 Benchmark Average", "Total", "Benchmark Average"];
+            const categories = ["Scope1", "Scope1 avg", "Scope2", "Scope2 avg", "Scope 3", "Scope 3 avg", "Total", "Benchmark Average"];
             const values = [
                 data.scope1, data.scope1_benchmark_average,
                 data.scope2, data.scope2_benchmark_average,
@@ -269,15 +269,23 @@
 
             const option = {
                 ...globalChartOptions,
-                title: { text: 'Non-Biological Emission Intensity per Hectare' },
+                title: {
+                    ...globalChartOptions.title,
+                    text: 'Non-Biological Emission Intensity per Hectare'
+                },
                 xAxis: {
                     ...globalChartOptions.xAxis,
                     type: 'category',
-                    data: categories
+                    data: categories,
+                    axisLabel: {
+                        ...globalChartOptions.xAxis.axisLabel,
+                        interval: 0, // Show all labels on the x-axis
+                        rotate: 0, // Rotate labels for better spacing
+                    },
                 },
                 yAxis: {
                     ...globalChartOptions.yAxis,
-                    type: 'value'
+                    type: 'value',
                 },
                 series: [{
                     data: values,
@@ -285,7 +293,13 @@
                     itemStyle: {
                         color: (params) => colors[params.dataIndex]
                     }
-                }]
+                }],
+                grid: {
+                    left: '5%',
+                    right: '5%',
+                    bottom: '15%', // Adjust bottom margin to prevent clipping of labels
+                    containLabel: true,
+                },
             };
 
             chart.setOption(option);
