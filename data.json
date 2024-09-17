@@ -303,7 +303,7 @@
           "emission_intensity_per_hectare": "1.3899742"
         }
       ],
-      "percentile_of_reference_farm": "23.404255319148938"
+      "percentile_of_reference_farm": "23"
     },
     "benchmarking_emission_intensity_per_hectare_by_herdsize_per_hectare": {
       "financial_year": "2023",
@@ -777,12 +777,23 @@
       "financial_year": "2023",
       "total": "0.0019513024244169933",
       "scope1": "0.0014582588327364228",
-      "scope1_benchmark_average": "0.00029882487738267015",
+      "scope1_benchmark_average": "0.013825377847100315",
       "scope2": "0.00011777797101134222",
-      "scope2_benchmark_average": "0.00002510332416602848",
+      "scope2_benchmark_average": "0.00115475291163731",
       "scope3": "0.0003752656206692282",
-      "scope3_benchmark_average": "0.00007685047195591567",
-      "benchmark_average": "0.0004007786735046147"
+      "scope3_benchmark_average": "0.003535121709972121",
+      "benchmark_average": "0.018515252468709758"
+    },
+    "non_biological_emission_intensity_kg_per_head": {
+      "financial_year": "2023",
+      "total": "50.431280286536975",
+      "scope1": "37.68860172764941",
+      "scope1_benchmark_average": "357.31596319966275",
+      "scope2": "3.0439637615001054",
+      "scope2_benchmark_average": "29.844511552777576",
+      "scope3": "9.698714797387456",
+      "scope3_benchmark_average": "91.36498349603205",
+      "benchmark_average": "478.5254582484728"
     }
   }
 }
