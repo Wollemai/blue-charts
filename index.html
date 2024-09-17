@@ -133,15 +133,15 @@
                 // Initialize trend charts
                 initTrendCharts(data);
                 // Initialize non-biological emissions chart
-                initNonBioChart(data.non_biological_emission_intensity_per_hectare);
+                initNonBioChart(data.non_biological_emission_intensity_kg_per_head);
             });
 
         function initBarChart(benchmarkingItems) {
             const barChart = echarts.init(document.getElementById('bar-chart'));
             const farmNames = benchmarkingItems.map(item => item.farm_name);
-            const values = benchmarkingItems.map(item => item.emission_intensity_per_hectare);
+            const values = benchmarkingItems.map(item => parseFloat(item.emission_intensity_per_hectare));
             const colors = benchmarkingItems.map(item => item.reference_farm ? 'blue' : 'lightblue');
-            const percentile = (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2); // Example percentile calculation
+            const percentile = 23; // Example percentile value
 
             const option = {
                 ...globalChartOptions,
@@ -180,9 +180,8 @@
 
         function initScatterPlot(benchmarkingItems) {
             const scatterPlot = echarts.init(document.getElementById('scatter-plot'));
-            // alert(JSON.stringify(benchmarkingItems))
             const data = benchmarkingItems.map(item => ({
-                value: [item.emission_per_hectare, item.herd_size_per_hectare],
+                value: [parseFloat(item.herd_size_per_hectare), parseFloat(item.emission_per_hectare)],
                 itemStyle: { color: item.reference_farm ? 'blue' : 'lightblue' }
             }));
 
@@ -217,8 +216,8 @@
             trends.forEach(trend => {
                 const chart = echarts.init(document.getElementById(trend.id));
                 const years = trend.items.map(item => item.financial_year);
-                const refValues = trend.items.map(item => item.reference_farm_amount);
-                const avgValues = trend.items.map(item => item.average_of_farms);
+                const refValues = trend.items.map(item => parseFloat(item.reference_farm_amount));
+                const avgValues = trend.items.map(item => parseFloat(item.average_of_farms));
 
                 const option = {
                     ...globalChartOptions,
@@ -252,12 +251,12 @@
 
         function initNonBioChart(data) {
             const chart = echarts.init(document.getElementById('non-bio-chart'));
-            const categories = ["Scope1", "Scope1 avg", "Scope2", "Scope2 avg", "Scope 3", "Scope 3 avg", "Total", "Benchmark Average"];
+            const categories = ["Scope1", "Scope1 avg", "Scope2", "Scope2 avg", "Scope3", "Scope3 avg", "Total", "Benchmark Average"];
             const values = [
-                data.scope1, data.scope1_benchmark_average,
-                data.scope2, data.scope2_benchmark_average,
-                data.scope3, data.scope3_benchmark_average,
-                data.total, data.benchmark_average
+                parseFloat(data.scope1), parseFloat(data.scope1_benchmark_average),
+                parseFloat(data.scope2), parseFloat(data.scope2_benchmark_average),
+                parseFloat(data.scope3), parseFloat(data.scope3_benchmark_average),
+                parseFloat(data.total), parseFloat(data.benchmark_average)
             ];
 
             const colors = [
